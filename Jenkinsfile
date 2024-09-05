@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                printenv
                 sh 'mvn --version'
             }
         }
