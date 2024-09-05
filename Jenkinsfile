@@ -6,10 +6,17 @@ pipeline {
         disableConcurrentBuilds()
         timestamps()
     }
+    environment {
+        DB_DRIVER = 'sqlite3'
+        SECRET_SECRET = 'secret-key'
+    }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'echo "Fail!"; exit 1'
+                echo "DB_DRIVER env is ${DB_DRIVER}"
+                echo "SECRET_SECRET env is ${SECRET_SECRET}"
+                sh 'printenv'
+                echo 'Build done.'
             }
         }
     }
