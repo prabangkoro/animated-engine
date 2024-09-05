@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Approval') {
             steps {
-                timeout(time: 10, unit: 'SECONDS') {
+                timeout(time: 1, unit: 'MINUTES') {
                     input(message: "Do you want to proceed deploy for ${TARGET_DEPLOYMENT} instance?")
                 }
             }
